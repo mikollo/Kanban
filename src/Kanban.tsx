@@ -19,20 +19,24 @@ function kanbanReducer(state: KanbanInterface, action: actionInterface) {
   let newState = state;
   switch (action.type) {
     case "add list":
-      newState.push({ name: action.newListName, tasks: [] });
+      if (action.newListName)
+        newState.push({ name: action.newListName, tasks: [] });
       break;
     case "add task to list":
-      newState[action.indexOfList].tasks.push(action.newTaskData);
+      if (action.indexOfList && action.newTaskData)
+        newState[action.indexOfList].tasks.push(action.newTaskData);
       break;
     case "change list name":
-      newState[action.indexOfList] = {
-        name: action.newListName,
-        tasks: newState[action.indexOfList].tasks
-      };
+      if (action.indexOfList && action.newListName)
+        newState[action.indexOfList] = {
+          name: action.newListName,
+          tasks: newState[action.indexOfList].tasks
+        };
       break;
     case "edit task":
-      newState[action.indexOfList].tasks[action.indexOfTask] =
-        action.newTaskData;
+      if (action.indexOfList && action.indexOfTask && action.newTaskData)
+        newState[action.indexOfList].tasks[action.indexOfTask] =
+          action.newTaskData;
       break;
     default:
       throw "Action doesn't have a valid type";
@@ -40,7 +44,7 @@ function kanbanReducer(state: KanbanInterface, action: actionInterface) {
   return newState;
 }
 
-interface actionInterface {
+export interface actionInterface {
   type: "add list" | "add task to list" | "change list name" | "edit task";
   newListName?: string;
   newTaskData?: TaskInterface;

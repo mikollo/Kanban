@@ -1,6 +1,6 @@
-import App from "./src/App";
+import Kanban from "./src/Kanban";
 import React from "react";
 import ReactDOM from "react-dom";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Kanban />, rootElement);

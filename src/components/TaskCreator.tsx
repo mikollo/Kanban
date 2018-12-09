@@ -29,7 +29,7 @@ export default function TaskCreator(props: {
     <div>
       <input ref={titleInputElement} placeholder="Title" />
       <input ref={descriptionInputElement} placeholder="Description" />
-      <button onClick={addNewTask}>Add new list</button>
+      <button onClick={addNewTask}>Add new task</button>
     </div>
   );
 }

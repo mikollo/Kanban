@@ -1,18 +1,18 @@
 import React, { useRef } from "react";
-import { actionInterface } from "../Kanban";
+import { ActionInterface } from "../Kanban";
 
 export default function ListCreator(props: {
-  dispatch: React.Dispatch<actionInterface>;
+  dispatch: React.Dispatch<ActionInterface>;
 }) {
   const nameInputElement = useRef(null);
   const addNewList = () => {
-    const input: any = nameInputElement.current;
-    if (input && input.value) {
+    const input: HTMLInputElement | null = nameInputElement.current;
+    if (input!.value) {
       props.dispatch({
         type: "add list",
-        newListName: input.value
+        newListName: input!.value.slice(0, 30)
       });
-      input.value = "";
+      input!.value = "";
     } else {
       alert("Please enter list name");
     }

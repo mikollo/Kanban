@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { ActionInterface, ListInterface } from "../Kanban";
+import { ActionInterface, ListInterface, TaskInterface } from "../Kanban";
+import EditableTask from "./EditableTask";
+import TaskCreator from "./TaskCreator";
 
 export default function List(props: {
   listData: ListInterface;
@@ -21,6 +23,15 @@ export default function List(props: {
     <div>
       {inputError}
       <input onChange={onListNameChange} value={props.listData.name} />
+      {props.listData.tasks.map((taskData: TaskInterface, index) => (
+        <EditableTask
+          taskData={taskData}
+          indexOfList={props.indexOfList}
+          indexOfTask={index}
+          dispatch={props.dispatch}
+        />
+      ))}
+      <TaskCreator indexOfList={props.indexOfList} dispatch={props.dispatch} />
     </div>
   );
 }

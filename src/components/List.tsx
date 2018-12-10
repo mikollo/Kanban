@@ -4,11 +4,13 @@ import EditableTask from "./EditableTask";
 import TaskCreator from "./TaskCreator";
 import { ListContainer, Input, ListName } from "../shared/styledComponents";
 
-export default function List(props: {
+interface ListComponentInterface {
   listData: ListInterface;
   indexOfList: number;
   dispatch: React.Dispatch<ActionInterface>;
-}) {
+}
+
+export default function List(props: ListComponentInterface) {
   const onListNameChange = (event: React.FormEvent<HTMLInputElement>) => {
     props.dispatch({
       type: "change list name",
@@ -16,6 +18,7 @@ export default function List(props: {
       indexOfList: props.indexOfList
     });
   };
+
   return (
     <>
       <ListContainer>

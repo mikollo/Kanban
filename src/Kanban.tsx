@@ -23,7 +23,7 @@ export default function Kanban() {
 }
 
 function kanbanReducer(state: KanbanInterface, action: ActionInterface) {
-  let newState = state;
+  const newState = state;
   switch (action.type) {
     case "add list":
       newState.push({ name: action.newListName!, tasks: [] });
@@ -43,7 +43,7 @@ function kanbanReducer(state: KanbanInterface, action: ActionInterface) {
       ] = action.newTaskData!;
       break;
     default:
-      throw "Action doesn't have a valid type";
+      throw new Error("Action doesn't have a valid type");
   }
   return newState;
 }

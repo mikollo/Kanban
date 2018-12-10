@@ -2,12 +2,14 @@ import React, { useRef } from "react";
 import { TaskInterface, ActionInterface } from "../Kanban";
 import { Input, TaskWrapper } from "../shared/styledComponents";
 
-export default function EditableTask(props: {
+interface EditableTaskInterface {
   taskData: TaskInterface;
   indexOfList: number;
   indexOfTask: number;
   dispatch: React.Dispatch<ActionInterface>;
-}) {
+}
+
+export default function EditableTask(props: EditableTaskInterface) {
   const titleInputElement = useRef(null);
   const descriptionInputElement = useRef(null);
   const onChange = () => {

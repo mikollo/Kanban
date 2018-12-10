@@ -2,10 +2,12 @@ import React, { useRef } from "react";
 import { ActionInterface } from "../Kanban";
 import { Button, Input, TaskWrapper } from "../shared/styledComponents";
 
-export default function TaskCreator(props: {
+interface TaskCreatorInterface {
   indexOfList: number;
   dispatch: React.Dispatch<ActionInterface>;
-}) {
+}
+
+export default function TaskCreator(props: TaskCreatorInterface) {
   const titleInputElement = useRef(null);
   const descriptionInputElement = useRef(null);
   const addNewTask = () => {

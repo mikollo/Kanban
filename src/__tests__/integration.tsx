@@ -8,11 +8,12 @@ import Kanban from "../Kanban";
 afterEach(cleanup);
 
 test("List can be added", async () => {
-  const { getByText, getByPlaceholderText } = render(<Kanban />);
+  const { getByText, getByPlaceholderText, container } = render(<Kanban />);
   const input = getByPlaceholderText("New list name");
   (input as any).value = "Some list";
   fireEvent.change(input);
   fireEvent.click(getByText("Add new list"));
   const createdListHeader = getByText("Add new task");
   expect(createdListHeader).toBeDefined();
+  expect(container).toMatchSnapshot();
 });

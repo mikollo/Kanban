@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List can be added 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa jYKnyI"
+  >
+    <div
+      class="sc-bxivhb hoWKiU"
+    >
+      <input
+        class="sc-htpNat iHAoa"
+        value="Some list"
+      />
+      <div
+        class="sc-EHOje iutMph"
+      >
+        <input
+          class="sc-bwzfXH dBYOUD"
+          placeholder="Title"
+        />
+        <input
+          class="sc-bwzfXH dBYOUD"
+          placeholder="Description"
+        />
+        <button
+          class="sc-ifAKCX jHzvVK"
+        >
+          Add new task
+        </button>
+      </div>
+    </div>
+    <div
+      class="sc-bxivhb hoWKiU"
+    >
+      <input
+        class="sc-bwzfXH dBYOUD"
+        name="lol"
+        placeholder="New list name"
+        type="text"
+      />
+      <button
+        class="sc-ifAKCX jHzvVK"
+      >
+        Add new list
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -22,7 +22,7 @@ export default function Kanban() {
   );
 }
 
-function kanbanReducer(state: KanbanInterface, action: ActionInterface) {
+export function kanbanReducer(state: KanbanInterface, action: ActionInterface) {
   const newState = state;
   switch (action.type) {
     case "add list":

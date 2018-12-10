@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { TaskInterface, ActionInterface } from "../Kanban";
+import { Input, TaskWrapper } from "../shared/styledComponents";
 
 export default function EditableTask(props: {
   taskData: TaskInterface;
@@ -28,19 +29,19 @@ export default function EditableTask(props: {
   };
 
   return (
-    <div>
-      <input
+    <TaskWrapper>
+      <Input
         ref={titleInputElement}
         onChange={onChange}
         value={props.taskData.title}
         placeholder="Title"
       />
-      <input
+      <Input
         ref={descriptionInputElement}
         onChange={onChange}
         value={props.taskData.description}
         placeholder="Description"
       />
-    </div>
+    </TaskWrapper>
   );
 }

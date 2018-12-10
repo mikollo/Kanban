@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { ActionInterface } from "../Kanban";
+import { ListContainer, Button, Input } from "../shared/styledComponents";
 
 export default function ListCreator(props: {
   dispatch: React.Dispatch<ActionInterface>;
@@ -7,25 +8,21 @@ export default function ListCreator(props: {
   const nameInputElement = useRef(null);
   const addNewList = () => {
     const input: HTMLInputElement | null = nameInputElement.current;
-    if (input!.value) {
-      props.dispatch({
-        type: "add list",
-        newListName: input!.value.slice(0, 30)
-      });
-      input!.value = "";
-    } else {
-      alert("Please enter list name");
-    }
+    props.dispatch({
+      type: "add list",
+      newListName: input!.value.slice(0, 30)
+    });
+    input!.value = "";
   };
   return (
-    <div>
-      <input
+    <ListContainer>
+      <Input
         ref={nameInputElement}
         type="text"
         name="lol"
         placeholder="New list name"
       />
-      <button onClick={addNewList}>Add new list</button>
-    </div>
+      <Button onClick={addNewList}>Add new list</Button>
+    </ListContainer>
   );
 }

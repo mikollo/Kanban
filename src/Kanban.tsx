@@ -1,13 +1,13 @@
 import React, { useReducer } from "react";
 import List from "./components/List";
 import ListCreator from "./components/ListCreator";
+import { GlobalStyle, KanbanWrapper } from "./shared/styledComponents";
 
 export default function Kanban() {
   const [lists, dispatch] = useReducer(kanbanReducer, []);
 
   return (
-    <div>
-      {JSON.stringify(lists)}
+    <KanbanWrapper>
       {lists.map((listData, index) => (
         <List
           key={index}
@@ -17,7 +17,8 @@ export default function Kanban() {
         />
       ))}
       <ListCreator dispatch={dispatch} />
-    </div>
+      <GlobalStyle />
+    </KanbanWrapper>
   );
 }
 

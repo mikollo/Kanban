@@ -23,7 +23,7 @@ export default function Kanban() {
 }
 
 export function kanbanReducer(state: KanbanInterface, action: ActionInterface) {
-  const newState = state;
+  const newState = [...state];
   switch (action.type) {
     case "add list":
       newState.push({ name: action.newListName!, tasks: [] });
